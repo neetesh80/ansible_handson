@@ -1,0 +1,7 @@
+---
+# vars file for roles/testhandler
+
+http_port: 80
+max_clients: 10000
+
+

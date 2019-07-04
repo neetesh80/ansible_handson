@@ -1,0 +1,9 @@
+---
+
+- debug:
+    msg: "Playbook 1"
+
+- name: Include a play after another play
+  include: register.yaml
+
+...

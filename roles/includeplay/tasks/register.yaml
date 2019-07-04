@@ -1,0 +1,13 @@
+---
+        
+- name: Find all the txt files from a dir
+  shell: "find *.txt"
+  args:
+    chdir: /home/tester
+  register: reg_output
+
+- name: Print all the txt files captured in register variable 
+  debug: 
+    var: reg_output
+
+...

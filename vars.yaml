@@ -1,0 +1,47 @@
+---
+-  name: Print the variables to see precedence
+   #hosts: group1
+   #hosts: common
+   hosts: db
+   
+   vars:
+     myname: "neetesh-playbook"
+     mycomp: "hpe-playbook"
+   
+   vars_files:
+     - "vars_file.yaml"
+   vars_prompt:
+     - name: "myname"
+       private: no
+       #private: yes
+       prompt: "What is your name ?"
+     - name: "mycomp"
+       private: no
+       prompt: "What is your company ?"
+       
+
+   #tasks:
+   #  - name: Print the task variables
+   #    ## Include variables using include_vars
+   #    include_vars: vars_file2.yaml
+
+   tasks:
+     - include_vars: "vars_file2.yaml"
+     - name: Print the variables
+       debug:
+           msg: My name is {{ myname }} works with {{ mycomp }}
+     
+     - name: More ways to print the variables
+       debug: msg="My name is {{ myname }} works with {{ mycomp }}"
+       #debug: msg="{{ myname }}"
+
+     
+     - name: Some more ways to print the variables
+       #debug: var=myname
+       debug: 
+         var: myname
+         verbosity: 0 
+  
+...         
+
+      

@@ -1,0 +1,8 @@
+---
+-  name: Reboot the Apache server
+   hosts: web
+   tasks:
+     - name: Restart the httpd server
+       reboot: 
+         
+      

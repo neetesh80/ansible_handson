@@ -1,0 +1,34 @@
+---
+- name: Calling different roles to do different tasks
+  hosts: test
+
+  vars:
+    myname: "neetesh-playbook"
+    mycomp: "hpe-playbook"
+
+  vars_files:
+    - "vars_file.yaml"
+  vars_prompt:
+    - name: "myname"
+      private: no
+      prompt: "What is your name ?"
+    - name: "mycomp"
+      private: no
+      prompt: "What is your company ?"
+  
+
+#  - include_vars: 
+#      file: "vars_file2.yaml"
+
+  roles:
+    - role: useraddition
+    - role: webcontents
+    - role: webserver
+    - role: clonerepo
+    - role: ansibleconditional
+    - role: checkprecedence 
+    - role: searchfiles
+    - role: includeplay
+    - role: testhandler
+    - role: ansibleloop
+      

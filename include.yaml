@@ -1,0 +1,13 @@
+---
+
+- name: Register the output of a shell command
+  hosts: test
+  
+  tasks:
+    - debug:
+        msg: "Playbook 1"
+
+- name: Include a play after another play
+  include: register.yaml
+
+...

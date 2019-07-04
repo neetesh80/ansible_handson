@@ -1,0 +1,37 @@
+---
+
+- name: Calling handler to restart the Apache server on notifying the conf change
+  hosts: test
+
+  vars:
+    http_port: 80
+    max_clients: 2000
+   
+#  remote_user: root
+
+  tasks:
+
+  - name: ensure apache is at the latest version
+    yum:
+      name: httpd
+      state: latest
+
+  - name: write the apache config file
+    template:
+      src: /home/tester/httpd.j2
+      dest: /tmp/httpd.conf
+    notify:
+    - restart apache
+
+  - name: ensure apache is running
+    service:
+      name: httpd
+      state: started
+
+  handlers:
+    - name: restart apache
+      service:
+        name: httpd
+        state: reloaded
+
+...

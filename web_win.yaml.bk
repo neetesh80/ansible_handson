@@ -1,0 +1,18 @@
+---
+-  name: Create a file on windows server server
+   hosts: windows
+   tasks:
+     - name: Create a dir
+       win_file: 
+         path=C:\hp\neetesh 
+         state=directory
+     - name: Create a file
+       win_file: 
+         path=C:\hp\neetesh\index.html 
+         state=touch
+     - name: push contents to the file
+       win_copy: 
+         src=/home/tester/index.html 
+         dest=C:\hp\neetesh\index.html
+
+      

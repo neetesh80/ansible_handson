@@ -1,0 +1,6 @@
+---
+- name: Create a temp directory to host repo
+  file: path=/tmp/test state=directory
+- name: Clone the repo using url
+  git: repo=https://github.com/scmgalaxy/ansible-role-template clone=yes dest=/tmp/test
+      

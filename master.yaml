@@ -1,0 +1,9 @@
+---
+
+- import_playbook: user.yaml
+- import_playbook: web.yaml
+- import_playbook: web_contents.yaml
+#- import_playbook: reboot.yaml
+- import_playbook: pkg.yaml
+- import_playbook: repo.yaml
+

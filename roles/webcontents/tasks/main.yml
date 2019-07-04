@@ -1,0 +1,7 @@
+---
+- name: Create a file
+  file: path=index.html state=touch
+- name: Write contents to the file
+  lineinfile: dest=/var/www/html/index.html line='<html> <h1> Welcome to HP Ansible class </h1>  </html>' 
+         
+      

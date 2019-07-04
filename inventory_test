@@ -1,0 +1,9 @@
+
+[web]
+192.168.59.173 myname=neetesh-host mycomp=hpe-host
+
+[db]
+192.168.59.172
+192.168.59.173
+
+

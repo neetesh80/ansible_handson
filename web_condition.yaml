@@ -1,0 +1,14 @@
+---
+-  name: Gather facts for Redhat and windows
+   hosts: mix
+   tasks:
+     - name: Gather windows facts
+       win_copy:
+         src: /home/tester/index.html
+         dest: C:\hp\neetesh\index.html
+       when: ansible_distribution == "window"
+       
+     - name: Get the linux facts  
+       lineinfile: dest=/var/www/html/index.html line='<html> <h1> This is Redhat machine </h1>  </html>'
+       when: ansible_os_family == "RedHat"
+      

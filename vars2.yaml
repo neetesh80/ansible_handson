@@ -1,0 +1,27 @@
+---
+-  name: Print the variables to see precedence
+   #hosts: group1
+   #hosts: common
+   #hosts: db:web ## multiple groups can be passed
+   hosts: db,web ## multiple groups can be passed
+
+   
+   tasks:
+     - name: Print the variables
+       debug:
+           msg: My name is {{ myname }} works with {{ mycomp }}
+     
+     - name: More ways to print the variables
+       debug: msg="My name is {{ myname }} works with {{ mycomp }}"
+       #debug: msg="{{ myname }}"
+
+     
+     - name: Some more ways to print the variables
+       #debug: var=myname
+       debug: 
+         var: myname
+         verbosity: 0 
+  
+...         
+
+      

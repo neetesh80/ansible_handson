@@ -1,0 +1,6 @@
+---
+- name: Create a group
+  group: name=deploy state=present
+- name: Create a user and add to group
+  user: name=deploy group=deploy
+      

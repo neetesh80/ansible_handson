@@ -1,0 +1,10 @@
+---
+-  name: Create a file on windwos and write some contents
+   hosts: windows
+   tasks:
+     - name: Create a file
+       win_file: path=C:\Temp\neetesh\index.html state=touch
+     - name: Write contents to the file
+       lineinfile: dest=/var/www/html/index.html line='<html> <h1> Welcome to HP Ansible class </h1>  </html>' 
+         
+      
